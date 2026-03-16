@@ -1,0 +1,51 @@
+{
+  "account_access": {
+    "precision": 0.9966592427616926,
+    "recall": 0.9966592427616926,
+    "f1-score": 0.9966592427616926,
+    "support": 898.0
+  },
+  "billing_issue": {
+    "precision": 0.998876404494382,
+    "recall": 0.9977553310886644,
+    "f1-score": 0.9983155530600786,
+    "support": 891.0
+  },
+  "cancellation_request": {
+    "precision": 0.9932203389830508,
+    "recall": 0.9766666666666667,
+    "f1-score": 0.984873949579832,
+    "support": 300.0
+  },
+  "general_feedback": {
+    "precision": 0.9932432432432432,
+    "recall": 0.9932432432432432,
+    "f1-score": 0.9932432432432432,
+    "support": 296.0
+  },
+  "product_inquiry": {
+    "precision": 1.0,
+    "recall": 0.9986648865153538,
+    "f1-score": 0.9993319973279893,
+    "support": 749.0
+  },
+  "technical_support": {
+    "precision": 0.9900552486187846,
+    "recall": 0.9977728285077951,
+    "f1-score": 0.9938990571270105,
+    "support": 898.0
+  },
+  "accuracy": 0.9957837301587301,
+  "macro avg": {
+    "precision": 0.9953424130168589,
+    "recall": 0.9934603664639026,
+    "f1-score": 0.9943871738499742,
+    "support": 4032.0
+  },
+  "weighted avg": {
+    "precision": 0.9957923093648507,
+    "recall": 0.9957837301587301,
+    "f1-score": 0.9957793556421625,
+    "support": 4032.0
+  }
+}

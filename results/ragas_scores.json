@@ -1,0 +1,403 @@
+{
+  "aggregate": {
+    "faithfulness": {
+      "mean": 0.667,
+      "median": 0.85,
+      "std": 0.3375,
+      "min": 0.0,
+      "max": 0.95
+    },
+    "answer_relevancy": {
+      "mean": 0.837,
+      "median": 0.85,
+      "std": 0.1641,
+      "min": 0.3,
+      "max": 0.95
+    }
+  },
+  "per_query": [
+    {
+      "query": "i want assistance canceling purchase {{order number}}",
+      "predicted_intent": "cancellation_request",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.75
+    },
+    {
+      "query": "i want to know about editing my delivery address",
+      "predicted_intent": "general_feedback",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "how to see your allowed payment options?",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.3,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "reimburse {{currency symbol}}{{refund amount}}",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.75
+    },
+    {
+      "query": "i want help checking how soon can i expect my delivery",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "i don't know how i can change to the gold account",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "help me check the early termination penalty",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "can i place an oeder from {{delivery city}}",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "where to take a quick look at my invoice #85632",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.2,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i want assistance to check the early exit penalty",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "help me to speak with customer assistance",
+      "predicted_intent": "general_feedback",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "i try to check the payment methods",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "can i inform of an issue with a registration",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "want help checking the allowed payment methods",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "need assistance with opening my {{account type}} account",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.3
+    },
+    {
+      "query": "rebating {{refund amount}} dollars",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.75
+    },
+    {
+      "query": "i want help to check the early termination charge",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i ordered some item, cancel purchase {{order number}}",
+      "predicted_intent": "cancellation_request",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "can you help me getting in touch with customer service?",
+      "predicted_intent": "general_feedback",
+      "faithfulness": 0.7,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i have to open an pro account for my dad",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.3,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "help me checking the available payment options",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i do not know how i can change to the {{account category}} account",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.75,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "adding article to order {{order number}}",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "help seeing the methods for delivery",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "help me seeing what hours customer service available is",
+      "predicted_intent": "general_feedback",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.3
+    },
+    {
+      "query": "what do i have to do to chat with an operator?",
+      "predicted_intent": "cancellation_request",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.65
+    },
+    {
+      "query": "there are issues entering my new shipping address",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i need help to see what methods for delivery you offer",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.3,
+      "answer_relevancy": 0.75
+    },
+    {
+      "query": "i cannot sign up, i would like to report a sign-up issue",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i need to get the bill #00108, how do i do it?",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.2,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i need to see how long it takes for my item to arrive",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "need to receive a reimbursement of my money",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i have to use the freemium account could ya help m",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.65
+    },
+    {
+      "query": "i need to cancel my company newsletter subscription",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.3,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "help me see your accepted payment options",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i have to file a customer claim against your business",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.75,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "i do not know how to see the early exit penalty",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.7,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "is it possible to notify of an error with signup",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "how to cancel purchase {{order number}}?",
+      "predicted_intent": "cancellation_request",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "i want assistance seeing your accepted payment methods",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i do not know how i can download my bills from {{person name}}",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "i need help to ask for restitutions of my mone",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "how to check how soon can i expect the item",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "someone stole my pin code, assistance restoring it",
+      "predicted_intent": "account_access",
+      "faithfulness": 0.95,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "lodge reclamation",
+      "predicted_intent": "technical_support",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.3
+    },
+    {
+      "query": "i'm waiting for a refund of {{refund amount}} dollars",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "i have got to see the early exit fee",
+      "predicted_intent": "billing_issue",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.85
+    },
+    {
+      "query": "updating address",
+      "predicted_intent": "general_feedback",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.65
+    },
+    {
+      "query": "want assistance lising your accepted payment methods",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.95
+    },
+    {
+      "query": "how do i get the bills from {{person name}}?",
+      "predicted_intent": "product_inquiry",
+      "faithfulness": 0.85,
+      "answer_relevancy": 0.65
+    }
+  ],
+  "flagged_low_faithfulness": [
+    {
+      "index": 2,
+      "query": "how to see your allowed payment options?",
+      "faithfulness": 0.3,
+      "response": "Great question! Here are the easiest ways to view your available payment options:\n\n**During Checkout:**\n- Add items to your cart and proceed to checkout\n- All accepted payment methods will display on the payment page before you complete your purchase\n\n**On Our Website:**\n- Check the footer of our homepage for payment icons\n- Visit our \"Payment Methods\" or \"FAQ\" page for detailed information\n\n**Common Payment Options We Typically Accept:**\n- Major credit cards (Visa, Mastercard, American Express)\n- Debit cards\n- PayPal\n- Digital wallets (Apple Pay, Google Pay)\n- Buy now, pay later services (varies by location)\n\n**Need More Help?**\nIf you're having trouble seeing payment options or need to verify a specific method, I'd be happy to check what's available for your location! Payment options can sometimes vary by region or product type.\n\nWould you like me to help you with anything specific regarding payment methods?"
+    },
+    {
+      "index": 8,
+      "query": "where to take a quick look at my invoice #85632",
+      "faithfulness": 0.2,
+      "response": "I'd be happy to help you locate your invoice #85632! Here are the quickest ways to access it:\n\n**Online Account:**\n- Log into your account on our website\n- Navigate to \"My Orders\" or \"Order History\" \n- Search for invoice #85632 or filter by date range\n\n**Email:**\n- Check your email inbox for our invoice confirmation\n- Search for \"invoice 85632\" or our company name\n- Don't forget to check your spam/junk folder\n\n**Customer Portal:**\n- Use our self-service portal with your order number\n- Available 24/7 for instant access\n\n**Need immediate assistance?**\nIf you can't locate it through these methods, I can email you a copy right now or help you access your account. Just provide the email address associated with your order.\n\nWould you like me to resend the invoice to your email, or do you need help accessing your online account?"
+    },
+    {
+      "index": 11,
+      "query": "i try to check the payment methods",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you with information about our payment methods! \n\nWe accept several convenient payment options:\n\n**Credit/Debit Cards:** Visa, Mastercard, American Express, and Discover\n**Digital Wallets:** PayPal, Apple Pay, Google Pay, and Samsung Pay\n**Buy Now, Pay Later:** Klarna and Afterpay (for eligible purchases)\n**Bank Transfer:** Available for larger orders\n**Gift Cards:** Our store gift cards and select third-party gift cards\n\nAll payments are processed through secure, encrypted systems to protect your information. Most payment methods are processed instantly, while bank transfers may take 1-2 business days to clear.\n\nTo view payment options during checkout, simply add items to your cart and proceed to the payment page where you'll see all available methods for your region.\n\nIs there a specific payment method you'd like to use, or do you need help with any payment-related issues? I'm here to assist!"
+    },
+    {
+      "index": 13,
+      "query": "want help checking the allowed payment methods",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you with our accepted payment methods! \n\nWe currently accept the following payment options:\n\n**Credit/Debit Cards:**\n- Visa, Mastercard, American Express, and Discover\n- Both domestic and international cards\n\n**Digital Payments:**\n- PayPal\n- Apple Pay\n- Google Pay\n\n**Other Options:**\n- Bank transfers/ACH (for larger orders)\n- Buy now, pay later services (Klarna, Afterpay)\n\nAll payments are processed through secure, encrypted systems to protect your information. Most payment methods are processed instantly, while bank transfers may take 1-3 business days.\n\n**Need to know:** Some payment methods may have regional restrictions or minimum order requirements.\n\nIs there a specific payment method you'd like to use, or do you have questions about any of these options? I'm here to help make your checkout process as smooth as possible!"
+    },
+    {
+      "index": 19,
+      "query": "i have to open an pro account for my dad",
+      "faithfulness": 0.3,
+      "response": "Hello! I'd be happy to help you with opening a Pro account for your father.\n\nTo ensure account security and proper setup, here are the recommended steps:\n\n**For a new Pro account:**\n1. Your father should create the account himself using his own email address\n2. He can visit our website and select \"Upgrade to Pro\" or \"Create Pro Account\"\n3. He'll need to provide his personal information and payment details\n\n**Important security note:** Each account should be registered under the actual user's name and email for security and billing purposes.\n\n**If you need to assist him:**\n- You can help guide him through the process\n- For billing questions, he can add you as an authorized contact later\n\nWould you like me to walk you through the Pro account features, or do you need help with a different account access issue? I'm here to help ensure everything is set up correctly and securely."
+    },
+    {
+      "index": 20,
+      "query": "help me checking the available payment options",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you with our available payment options! Here are the convenient ways you can pay for your purchase:\n\n**Credit/Debit Cards:** We accept all major cards including Visa, Mastercard, American Express, and Discover.\n\n**Digital Wallets:** PayPal, Apple Pay, Google Pay, and Samsung Pay for quick, secure checkout.\n\n**Buy Now, Pay Later:** Options like Klarna, Afterpay, or Affirm (depending on your location and order total).\n\n**Bank Transfer:** Direct bank transfers for larger purchases.\n\n**Gift Cards:** Store credit and gift cards can be applied at checkout.\n\nAll payments are processed through secure, encrypted systems to protect your information. Payment options may vary slightly based on your location and order total.\n\nIs there a specific payment method you'd like to use, or do you need help with any particular option? I'm here to make your checkout process as smooth as possible!"
+    },
+    {
+      "index": 27,
+      "query": "i need help to see what methods for delivery you offer",
+      "faithfulness": 0.3,
+      "response": "I understand you're looking for information about our delivery methods. This appears to be an informational request rather than a technical issue. Here's how to find this information:\n\n**Step 1:** Visit our website's main page\n**Step 2:** Look for \"Shipping\" or \"Delivery\" in the footer menu or main navigation\n**Step 3:** Click on \"Shipping Information\" or \"Delivery Options\"\n\n**Alternative methods:**\n- Check your account dashboard under \"Shipping Preferences\"\n- Review the checkout page where delivery options are typically displayed\n- Look for a \"Help\" or \"FAQ\" section on our website\n\n**If you still can't locate this information:**\n- Contact our sales team directly at [sales contact]\n- Use the live chat feature on our website\n- Check your previous order confirmations for delivery method details\n\nWould you like me to connect you with our sales team for specific delivery options and pricing?"
+    },
+    {
+      "index": 29,
+      "query": "i need to get the bill #00108, how do i do it?",
+      "faithfulness": 0.2,
+      "response": "I'd be happy to help you retrieve bill #00108! Here are the most common ways to access your bill:\n\n**Online Account:**\n- Log into your customer portal/account on our website\n- Navigate to \"Billing\" or \"Invoice History\" \n- Search for bill #00108 or browse by date\n\n**Customer Service:**\n- Call our billing department directly\n- Have your account information ready for verification\n- We can email or mail a copy to you\n\n**Mobile App:**\n- Check if we have a mobile app with billing access\n- Bills are typically stored in the \"Account\" or \"Billing\" section\n\n**Email:**\n- Check your email for the original bill notification\n- Search for \"bill #00108\" or our company name\n\nIf you're having trouble locating it through any of these methods, I can connect you with our billing team who can assist you immediately. Do you have a preferred method, or would you like me to help you with a specific option?"
+    },
+    {
+      "index": 33,
+      "query": "i need to cancel my company newsletter subscription",
+      "faithfulness": 0.3,
+      "response": "I'd be happy to help you cancel your company newsletter subscription! Here are a few quick ways to unsubscribe:\n\n**Easiest method:** Look for an \"Unsubscribe\" link at the bottom of any recent newsletter email you've received. Click it and follow the simple prompts.\n\n**Alternative options:**\n- Reply to any newsletter email with \"UNSUBSCRIBE\" in the subject line\n- Contact our customer service team directly at [customer service contact]\n- Log into your account on our website and update your email preferences\n\nYour unsubscription will typically take effect within 24-48 hours. You may receive one final confirmation email.\n\n**Need help finding the unsubscribe link?** Sometimes it's in small text at the very bottom of the email. If you're still having trouble locating it, I can walk you through it or process the cancellation for you directly.\n\nIs there anything specific about the newsletter that prompted you to unsubscribe? We value your feedback!"
+    },
+    {
+      "index": 34,
+      "query": "help me see your accepted payment options",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you with our payment options! We accept a variety of convenient payment methods to make your shopping experience smooth:\n\n**Credit/Debit Cards:** Visa, Mastercard, American Express, and Discover\n**Digital Wallets:** PayPal, Apple Pay, Google Pay, and Samsung Pay\n**Buy Now, Pay Later:** Klarna, Afterpay, and Affirm (for qualifying purchases)\n**Gift Cards:** Our store gift cards and select third-party gift cards\n**Bank Transfer:** Available for larger purchases\n\nAll transactions are secured with industry-standard encryption to protect your information. For international customers, we also accept payments in multiple currencies with automatic conversion.\n\nIs there a specific payment method you'd prefer to use? I can provide more details about any of these options or help you through the checkout process. Also, feel free to ask if you have questions about payment security or our refund policies!"
+    },
+    {
+      "index": 39,
+      "query": "i want assistance seeing your accepted payment methods",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you with our accepted payment methods! \n\nWe accept a wide variety of payment options to make your shopping experience convenient:\n\n**Credit/Debit Cards:** Visa, Mastercard, American Express, and Discover\n**Digital Wallets:** PayPal, Apple Pay, Google Pay, and Samsung Pay\n**Buy Now, Pay Later:** Klarna, Afterpay, and Affirm (for qualifying purchases)\n**Gift Cards:** Our store gift cards and select third-party gift cards\n**Bank Transfers:** For larger purchases, we also accept ACH transfers\n\nAll transactions are processed through secure, encrypted payment gateways to protect your information. Most payment methods are processed instantly, while bank transfers may take 1-2 business days to clear.\n\nIs there a specific payment method you'd like to use? I can provide more details about any of these options or help you through the checkout process!"
+    },
+    {
+      "index": 40,
+      "query": "i do not know how i can download my bills from {{person name}}",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you download your bills! Here's how you can access and download your billing statements:\n\n**Online Account:**\n1. Log into your account on our website\n2. Navigate to \"Billing\" or \"Account Management\"\n3. Select \"View Bills\" or \"Billing History\"\n4. Click the download icon (usually a PDF symbol) next to each bill\n\n**Mobile App:**\n- Open our app \u2192 Account \u2192 Billing \u2192 Download\n\n**Alternative Options:**\n- **Email:** Check your email for monthly bill notifications with PDF attachments\n- **Customer Service:** Call our billing department, and we can email bills directly to you\n- **Auto-delivery:** Set up automatic email delivery for future bills\n\n**Need Your Login Info?** If you've forgotten your account credentials, use the \"Forgot Password\" link or contact us with your account number.\n\nWould you like me to walk you through any of these steps, or do you need help with a specific part of the process?"
+    },
+    {
+      "index": 48,
+      "query": "want assistance lising your accepted payment methods",
+      "faithfulness": 0.0,
+      "response": "I'd be happy to help you with our accepted payment methods! Here are the payment options we currently accept:\n\n**Credit/Debit Cards:**\n- Visa, Mastercard, American Express, and Discover\n- Both domestic and international cards accepted\n\n**Digital Payments:**\n- PayPal\n- Apple Pay\n- Google Pay\n- Shop Pay\n\n**Other Options:**\n- Bank transfers/ACH payments\n- Buy now, pay later services (Klarna, Afterpay)\n- Gift cards and store credit\n\nAll transactions are processed through secure, encrypted payment gateways to protect your information. Most payments are processed instantly, though bank transfers may take 1-3 business days.\n\nIs there a specific payment method you'd like to use? I can provide more details about any of these options or help you through the checkout process. We want to make your purchase as convenient as possible!"
+    }
+  ],
+  "n_evaluated": 50,
+  "n_flagged": 13,
+  "pct_flagged": 26.0
+}
