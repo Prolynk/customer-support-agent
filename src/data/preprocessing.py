@@ -7,45 +7,22 @@ import numpy as np
 
 
 def clean_text(text: str) -> str:
-    """Clean a single text string for classification.
-
-    Lowercases, normalizes whitespace, and removes non-ASCII characters
-    while preserving punctuation (important for transformer tokenizers).
-
-    Args:
-        text: Raw input text.
-
-    Returns:
-        Cleaned text string.
-    """
+    """Lowercase, strip non-ASCII, and normalize whitespace. Punctuation is preserved."""
     if not isinstance(text, str):
         text = str(text)
     text = text.lower()
-    # Remove non-ASCII characters
     text = text.encode("ascii", errors="ignore").decode("ascii")
-    # Normalize whitespace (collapse multiple spaces/newlines/tabs)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
 
 def clean_texts(texts: List[str]) -> List[str]:
-    """Apply clean_text to a list of strings.
-
-    Args:
-        texts: List of raw text strings.
-
-    Returns:
-        List of cleaned text strings.
-    """
+    """Apply clean_text to each string in texts."""
     return [clean_text(t) for t in texts]
 
 
 def set_global_seeds(seed: int = 42) -> None:
-    """Set random seeds for reproducibility across numpy and Python random.
-
-    Args:
-        seed: Integer seed value.
-    """
+    """Set random seeds for reproducibility across numpy, Python random, and torch."""
     import random
 
     random.seed(seed)

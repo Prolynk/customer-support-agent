@@ -35,11 +35,6 @@ class ResponseGenerator:
             self._init_huggingface(gc)
 
     def _init_anthropic(self, gc: dict) -> None:
-        """Initialize the Anthropic client.
-
-        Args:
-            gc: Generation config sub-dict.
-        """
         try:
             import anthropic  # type: ignore
 
@@ -50,7 +45,7 @@ class ResponseGenerator:
                     "Create a .env file with your key or set it in the environment."
                 )
             self.client = anthropic.Anthropic(api_key=api_key)
-            self.model_name: str = gc.get("model", "claude-sonnet-4-20250514")
+            self.model_name: str = gc.get("model", "claude-haiku-4-5-20251001")
             logger.info(f"Anthropic provider initialised with model '{self.model_name}'.")
         except ImportError as e:
             raise ImportError(
@@ -58,11 +53,6 @@ class ResponseGenerator:
             ) from e
 
     def _init_huggingface(self, gc: dict) -> None:
-        """Initialize a HuggingFace text-generation pipeline.
-
-        Args:
-            gc: Generation config sub-dict.
-        """
         try:
             from transformers import pipeline as hf_pipeline  # type: ignore
             import torch
@@ -83,34 +73,22 @@ class ResponseGenerator:
                 "transformers package not installed. Run: pip install transformers"
             ) from e
 
-    def generate(self, query: str, intent: str) -> str:
-        """Generate a support response for a classified query.
-
-        Args:
-            query: Original customer query text.
-            intent: Classified intent category string.
-
-        Returns:
-            Generated response text.
-        """
+    def generate(self, query: str, intent: str) -> tuple:
+        """Generate a support response and return (response_text, context_used)."""
         template = get_template(intent)
         system_msg = template["system"]
         user_msg = format_user_prompt(intent, query)
+        context = system_msg + "\n\n" + user_msg
 
         if self.provider == "anthropic":
-            return self._generate_anthropic(system_msg, user_msg)
-        return self._generate_huggingface(system_msg, user_msg)
+            response = self._generate_anthropic(system_msg, user_msg)
+        else:
+            response = self._generate_huggingface(system_msg, user_msg)
+
+        return response, context
 
     def _generate_anthropic(self, system_msg: str, user_msg: str) -> str:
-        """Call Anthropic Messages API.
-
-        Args:
-            system_msg: System prompt string.
-            user_msg: User prompt string.
-
-        Returns:
-            Assistant response text.
-        """
+        """Call Anthropic Messages API and return the response text."""
         try:
             message = self.client.messages.create(
                 model=self.model_name,
@@ -125,15 +103,7 @@ class ResponseGenerator:
             raise
 
     def _generate_huggingface(self, system_msg: str, user_msg: str) -> str:
-        """Call HuggingFace pipeline with instruction format.
-
-        Args:
-            system_msg: System prompt string.
-            user_msg: User prompt string.
-
-        Returns:
-            Generated response text.
-        """
+        """Call HuggingFace pipeline with instruction format and return the response text."""
         prompt = (
             f"<s>[INST] {system_msg}\n\n{user_msg} [/INST]"
         )

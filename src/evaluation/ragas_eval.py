@@ -6,6 +6,7 @@ the Anthropic API directly in a synchronous loop — no async timeouts, no OpenA
 
 import json
 import os
+import statistics
 import time
 from pathlib import Path
 from typing import Dict, List
@@ -63,6 +64,7 @@ def _score_single(
     Returns:
         Float score between 0.0 and 1.0.
     """
+    text = ""
     for attempt in range(retries):
         try:
             msg = client.messages.create(
@@ -75,7 +77,7 @@ def _score_single(
             score = float(text)
             return max(0.0, min(1.0, score))
         except (ValueError, IndexError):
-            logger.warning(f"Could not parse score from response: '{text}' — defaulting to 0.5")
+            logger.warning(f"Could not parse score from response: '{text}' -- defaulting to 0.5")
             return 0.5
         except anthropic.RateLimitError:
             wait = 2 ** attempt
@@ -135,7 +137,6 @@ def run_ragas_evaluation(
     for metric in ["faithfulness", "answer_relevancy"]:
         vals = [q[metric] for q in per_query if q[metric] is not None]
         if vals:
-            import statistics
             agg[metric] = {
                 "mean": round(sum(vals) / len(vals), 4),
                 "median": round(statistics.median(vals), 4),

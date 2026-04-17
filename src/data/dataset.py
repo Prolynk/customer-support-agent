@@ -11,10 +11,6 @@ from sklearn.model_selection import train_test_split
 
 from src.data.preprocessing import clean_texts, set_global_seeds
 
-# ---------------------------------------------------------------------------
-# Label mapping – consolidate Bitext tags → 6 target categories
-# ---------------------------------------------------------------------------
-
 INTENT_CATEGORIES = [
     "billing_issue",
     "account_access",
@@ -51,16 +47,14 @@ LABEL_MAP: Dict[str, str] = {
     "track_order": "technical_support",
     "place_order": "technical_support",
     "change_order": "technical_support",
-    "check_invoices": "technical_support",
+    "check_invoices": "billing_issue",
     # product_inquiry
-    "check_invoice": "product_inquiry",   # overlap resolved by order above; kept for fallback
     "get_invoice": "product_inquiry",
     "check_payment_methods": "product_inquiry",
     "newsletter_subscription": "product_inquiry",
     "product_compatibility": "product_inquiry",
     "review": "product_inquiry",
     "check_warranty_guarantee": "product_inquiry",
-    "get_invoice": "product_inquiry",
     # cancellation_request
     "cancel_order": "cancellation_request",
     "cancel_subscription": "cancellation_request",
@@ -75,14 +69,7 @@ LABEL_MAP: Dict[str, str] = {
 
 
 def _load_from_huggingface(dataset_name: str) -> pd.DataFrame:
-    """Load dataset from Hugging Face hub and return as DataFrame.
-
-    Args:
-        dataset_name: HuggingFace dataset identifier.
-
-    Returns:
-        DataFrame with 'text' and 'intent' columns.
-    """
+    """Load dataset from Hugging Face hub and return as a combined DataFrame."""
     from datasets import load_dataset  # type: ignore
 
     logger.info(f"Loading dataset '{dataset_name}' from HuggingFace Hub…")
@@ -99,14 +86,7 @@ def _load_from_huggingface(dataset_name: str) -> pd.DataFrame:
 
 
 def _map_labels(df: pd.DataFrame) -> pd.DataFrame:
-    """Map raw Bitext intent labels to our 6 categories.
-
-    Args:
-        df: DataFrame that must contain an intent/label column.
-
-    Returns:
-        DataFrame with a 'label' column containing one of the 6 categories.
-    """
+    """Map raw Bitext intent labels to the 6 target categories."""
     # Detect the intent column name
     intent_col = None
     for col in ["intent", "label", "category", "tag"]:

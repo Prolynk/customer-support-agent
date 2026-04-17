@@ -1,5 +1,6 @@
-models/
+models/distilbert/checkpoint-*/
 data/raw/
+.claude/
 .env
 __pycache__/
 *.pyc

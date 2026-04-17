@@ -1,5 +1,6 @@
-"""End-to-end support agent: classify intent → generate response → return result."""
+"""End-to-end support agent: classify intent -> generate response -> return result."""
 
+from pathlib import Path
 from typing import Dict
 
 from loguru import logger
@@ -32,30 +33,11 @@ class SupportAgent:
         self.low_confidence_threshold = low_confidence_threshold
 
     def resolve(self, query: str) -> Dict:
-        """Classify a query and generate a support response.
-
-        Args:
-            query: Raw customer query text.
-
-        Returns:
-            Dict with keys:
-                - query: original query
-                - predicted_intent: classified intent label
-                - confidence: classifier confidence score
-                - response: LLM-generated support response
-                - context: prompt context sent to the LLM
-                - requires_human: True if confidence is below threshold
-        """
-        # Stage 1: classify
+        """Classify a query and generate a support response."""
         intent, confidence = self.classifier.predict(query)
-        logger.debug(f"Classified '{query[:60]}…' → {intent} ({confidence:.3f})")
+        logger.debug(f"Classified '{query[:60]}' -> {intent} ({confidence:.3f})")
 
-        # Stage 2: generate
-        from src.generation.prompt_templates import format_user_prompt, get_template
-        template = get_template(intent)
-        context = template["system"] + "\n\n" + format_user_prompt(intent, query)
-
-        response = self.generator.generate(query, intent)
+        response, context = self.generator.generate(query, intent)
         logger.debug(f"Generated response ({len(response)} chars)")
 
         return {
@@ -69,17 +51,8 @@ class SupportAgent:
 
 
 def build_agent(cfg: dict) -> SupportAgent:
-    """Build a SupportAgent from config, loading saved model automatically.
-
-    Args:
-        cfg: Full config dict loaded from config.yaml.
-
-    Returns:
-        Ready-to-use SupportAgent instance.
-    """
-    model_dir = str(
-        __import__("pathlib").Path(cfg["paths"]["models_distilbert"]) / "best"
-    )
+    """Build a SupportAgent from config, loading the saved DistilBERT model."""
+    model_dir = str(Path(cfg["paths"]["models_distilbert"]) / "best")
     classifier = IntentClassifier(
         model_dir=model_dir,
         max_length=cfg["classifier"]["max_length"],

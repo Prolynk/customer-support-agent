@@ -1,6 +1,17 @@
+---
+title: Customer Support Agent
+emoji: 🎧
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: 4.44.0
+app_file: app.py
+pinned: false
+---
+
 # Customer Support Intent Classifier & Auto-Resolution Agent
 
-A portfolio-grade, two-stage customer support automation system combining a fine-tuned DistilBERT intent classifier with an LLM-powered response generator evaluated via RAGAS.
+A two-stage system that routes customer support queries through a fine-tuned DistilBERT intent classifier and generates tailored responses with Claude, built for support automation workflows.
 
 ---
 
@@ -47,38 +58,22 @@ flowchart LR
 | Metric | Score | Target | Status |
 |--------|-------|--------|--------|
 | Answer Relevancy | **0.837** | ≥ 0.80 | PASS |
-| Faithfulness | 0.667 | ≥ 0.85 | — |
+| Faithfulness | 0.667 | ≥ 0.85 | N/A |
 
-> **Note on Faithfulness:** The faithfulness metric measures whether responses stay within the literal bounds of the provided context. Since this system uses prompt templates (not a retrieved knowledge base), the LLM correctly generates helpful domain knowledge beyond what's in the template. This is expected and desirable behaviour for a prompt-based agent — answer relevancy is the more meaningful metric here.
+> **Note on Faithfulness:** The faithfulness metric measures whether responses stay within the literal bounds of the provided context. Since this system uses prompt templates (not a retrieved knowledge base), the LLM correctly generates helpful domain knowledge beyond what's in the template. This is expected and desirable behaviour for a prompt-based agent; answer relevancy is the more meaningful metric here.
 
 ---
 
 ## Setup
 
 ```bash
-# 1. Clone and install
 pip install -r requirements.txt
-
-# 2. Set your Anthropic API key
-cp .env.example .env
-# edit .env and add: ANTHROPIC_API_KEY=sk-ant-...
-
-# 3. Prepare data
+cp .env.example .env          # add ANTHROPIC_API_KEY
 python -m src.data.dataset
-
-# 4. Train baseline
 python scripts/train_baseline.py
-
-# 5. Fine-tune DistilBERT
 python scripts/train_classifier.py
-
-# 6. Run generation pipeline
 python scripts/run_generation.py
-
-# 7. Run RAGAS evaluation
 python scripts/run_evaluation.py
-
-# 8. Interactive demo
 python scripts/demo.py
 ```
 
@@ -102,8 +97,12 @@ intent_classifier/
 
 ---
 
+## Deploying to Hugging Face Spaces
+
+Create a Gradio Space, enable Git LFS (`git lfs track "*.safetensors" "*.pt" "*.pkl"`), push the repo, and add `ANTHROPIC_API_KEY` as a secret in Space Settings.
+
+---
+
 ## Environment Variables
 
-| Variable | Description |
-|----------|-------------|
-| `ANTHROPIC_API_KEY` | Required for Claude response generation |
+`ANTHROPIC_API_KEY` is required for Claude response generation. Set it in `.env` locally or as a secret in Hugging Face Space settings.
