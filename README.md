@@ -98,6 +98,12 @@ intent_classifier/
 
 ---
 
+## Live Demo
+
+**Try it here:** https://huggingface.co/spaces/pro580/customer-support-agent
+
+---
+
 ## Deploying to Hugging Face Spaces
 
 Create a Gradio Space, enable Git LFS (`git lfs track "*.safetensors" "*.pt" "*.pkl"`), push the repo, and add `ANTHROPIC_API_KEY` as a secret in Space Settings.
