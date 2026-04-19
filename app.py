@@ -48,7 +48,8 @@ import gradio as gr
 
 def handle_query(query: str, request: gr.Request):
     """Run the full pipeline on a user query and return display values."""
-    ip = request.client.host if request.client else "unknown"
+    forwarded_for = request.headers.get("x-forwarded-for") or request.headers.get("x-real-ip")
+    ip = forwarded_for.split(",")[0].strip() if forwarded_for else (request.client.host if request.client else "unknown")
     if _is_rate_limited(ip):
         return "-", "-", f"Rate limit reached: max {RATE_LIMIT} requests per {RATE_WINDOW}s. Please wait.", "⏳ Rate limited"
 
