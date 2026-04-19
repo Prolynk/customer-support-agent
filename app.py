@@ -1,9 +1,30 @@
 """Gradio web interface for the two-stage customer support agent."""
 
 import sys
+import time
+import collections
+import threading
 from pathlib import Path
 
 import yaml
+
+# Rate limiter: 5 requests per 60 seconds per IP
+_rate_lock = threading.Lock()
+_request_log: dict[str, collections.deque] = collections.defaultdict(lambda: collections.deque())
+RATE_LIMIT = 5
+RATE_WINDOW = 60  # seconds
+
+
+def _is_rate_limited(ip: str) -> bool:
+    now = time.time()
+    with _rate_lock:
+        dq = _request_log[ip]
+        while dq and now - dq[0] > RATE_WINDOW:
+            dq.popleft()
+        if len(dq) >= RATE_LIMIT:
+            return True
+        dq.append(now)
+        return False
 
 sys.path.insert(0, str(Path(__file__).parent))
 
@@ -22,8 +43,15 @@ except Exception as e:
     print(f"WARNING: Could not load agent: {e}")
 
 
-def handle_query(query: str):
+import gradio as gr
+
+
+def handle_query(query: str, request: gr.Request):
     """Run the full pipeline on a user query and return display values."""
+    ip = request.client.host if request.client else "unknown"
+    if _is_rate_limited(ip):
+        return "-", "-", f"Rate limit reached: max {RATE_LIMIT} requests per {RATE_WINDOW}s. Please wait.", "⏳ Rate limited"
+
     if agent is None:
         return "Error", "-", f"Agent failed to load: {LOAD_ERROR}", "❌ Setup error"
 
@@ -43,8 +71,6 @@ def handle_query(query: str):
 
     return intent, confidence, response, status
 
-
-import gradio as gr
 
 with gr.Blocks(title="Customer Support Agent", theme=gr.themes.Soft()) as demo:
 
